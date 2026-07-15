@@ -32,11 +32,14 @@ export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="w-64 flex-shrink-0 border-r border-layer-3 bg-layer-1 hidden md:flex flex-col h-[calc(100vh-4rem)] sticky top-16">
-      <div className="flex-1 py-8 px-0">
+    <aside className="w-64 flex-shrink-0 border-r border-layer-3 bg-layer-1/80 backdrop-blur-md hidden md:flex flex-col h-full relative z-20">
+      <div className="absolute inset-0 bg-gradient-to-b from-truth/5 to-transparent opacity-50 pointer-events-none"></div>
+      
+      <div className="flex-1 py-8 px-0 relative z-10">
         <div className="space-y-2">
-          <p className="px-6 text-[10px] font-mono text-muted-foreground uppercase tracking-widest mb-6">
-            // SYSTEM_NAVIGATION
+          <p className="px-6 text-[10px] font-mono text-muted-foreground uppercase tracking-widest mb-6 flex items-center gap-2">
+            <span className="w-1.5 h-1.5 bg-truth opacity-50"></span>
+            System Navigation
           </p>
           
           {navItems.map((item) => {
@@ -46,33 +49,36 @@ export function Sidebar() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "flex items-center gap-3 px-6 py-3 text-sm transition-all duration-300 font-mono tracking-wider",
+                  "flex items-center gap-3 px-6 py-3 text-sm transition-all duration-500 font-mono tracking-wider group relative overflow-hidden",
                   isActive
-                    ? "text-truth bg-layer-2/30 border-l-2 border-truth"
-                    : "text-muted-foreground hover:bg-layer-2/50 hover:text-foreground border-l-2 border-transparent"
+                    ? "text-truth bg-truth/5 border-l-2 border-truth"
+                    : "text-muted-foreground hover:bg-layer-2/80 hover:text-foreground border-l-2 border-transparent"
                 )}
               >
-                <item.icon className={cn("h-4 w-4", isActive ? "text-truth" : "text-muted-foreground")} />
-                {item.title}
+                {isActive && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-truth/10 to-transparent pointer-events-none"></div>
+                )}
+                <item.icon className={cn("h-4 w-4 relative z-10 transition-transform duration-300 group-hover:scale-110", isActive ? "text-truth" : "text-muted-foreground")} />
+                <span className="relative z-10">{item.title}</span>
               </Link>
             );
           })}
         </div>
       </div>
       
-      <div className="p-4 border-t border-layer-3 mt-auto bg-layer-2/20">
+      <div className="p-4 border-t border-layer-3 mt-auto bg-layer-2/30 relative z-10 backdrop-blur-sm">
         <div className="flex items-center gap-3 px-2 py-3 text-sm font-mono text-muted-foreground">
-          <ShieldCheck className="h-4 w-4 text-truth" />
+          <ShieldCheck className="h-4 w-4 text-truth animate-pulse" />
           <div className="flex flex-col">
             <span className="text-xs text-foreground">Secure Connection</span>
-            <span className="text-[10px]">Encrypted</span>
+            <span className="text-[10px] text-truth opacity-80">Encrypted</span>
           </div>
         </div>
         <Link
           href="#"
-          className="mt-2 flex items-center gap-3 px-2 py-2 text-xs font-mono text-muted-foreground hover:text-foreground transition-colors"
+          className="mt-2 flex items-center gap-3 px-2 py-2 text-xs font-mono text-muted-foreground hover:text-foreground transition-colors group"
         >
-          <Settings className="h-4 w-4" />
+          <Settings className="h-4 w-4 group-hover:rotate-90 transition-transform duration-500" />
           System Settings
         </Link>
       </div>
