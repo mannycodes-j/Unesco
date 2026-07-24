@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Network, Smartphone, GraduationCap, School } from "lucide-react";
+import { Network, Smartphone, GraduationCap, Users } from "lucide-react";
 import { FadeUp } from "../motion/FadeUp";
 
 export function Scene05Ecosystem() {
@@ -69,16 +69,16 @@ export function Scene05Ecosystem() {
             <p className="text-[10px] text-muted-foreground font-mono">MIL lessons, quizzes, and daily challenges. Earn Truth Points and Badges.</p>
           </motion.div>
 
-          {/* Node 4: Schools */}
+          {/* Node 4: Community */}
           <motion.div 
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
             className="absolute bottom-[10%] right-[10%] md:bottom-[20%] md:right-[15%] w-32 md:w-48 p-4 bg-layer-1 border border-layer-3 backdrop-blur-md z-30"
           >
-            <School className="w-5 h-5 text-truth mb-3" />
-            <h4 className="font-sans text-sm text-foreground mb-1">School Dashboard</h4>
-            <p className="text-[10px] text-muted-foreground font-mono">Track student progress, lesson completion, and community leaderboards.</p>
+            <Users className="w-5 h-5 text-truth mb-3" />
+            <h4 className="font-sans text-sm text-foreground mb-1">Community Dashboard</h4>
+            <p className="text-[10px] text-muted-foreground font-mono">Track personal progress, complete challenges, and view global impact leaderboards.</p>
           </motion.div>
 
           {/* Connecting Lines (SVG) */}

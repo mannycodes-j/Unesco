@@ -41,7 +41,7 @@ export function Scene04Journey() {
               <span className="font-mono text-truth text-xs uppercase tracking-widest mb-2 block">Step 02: AI Analysis</span>
               <h3 className="text-3xl font-editorial text-foreground mb-3">Instant decryption.</h3>
               <p className="text-muted-foreground font-sans leading-relaxed text-sm">
-                Our multi-agent system extracts factual claims, detects emotional manipulation (fear, urgency, clickbait), and cross-references against trusted sources.
+                Our multi-agent system extracts factual claims, detects emotional manipulation (false authority, fake statistics, misleading images), and cross-references against trusted sources.
               </p>
             </motion.div>
 

@@ -101,7 +101,7 @@ export default function DashboardPage() {
             <div className="relative z-10">
               <div className="flex justify-between items-start mb-6 text-muted-foreground group-hover:text-truth transition-colors duration-500">
                 <Shield className="w-5 h-5" />
-                <span className="text-[10px] font-mono tracking-widest uppercase">Nodes Processed</span>
+                <span className="text-[10px] font-mono tracking-widest uppercase">Links Verified</span>
               </div>
               <div className="text-4xl font-mono text-foreground mb-1 tracking-tight">34</div>
               <p className="text-xs text-muted-foreground font-mono mt-1 flex items-center gap-2">

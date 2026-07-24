@@ -97,7 +97,7 @@ export function Scene01Hero() {
                     className="p-4 bg-layer-1 border-l-2 border-manipulation"
                   >
                     <p className="font-mono text-xs text-manipulation mb-1">BIAS DETECTED</p>
-                    <p className="text-sm font-sans text-foreground">High levels of sensationalism.</p>
+                    <p className="text-sm font-sans text-foreground">Exaggerated claims.</p>
                   </motion.div>
                 </div>
               </div>

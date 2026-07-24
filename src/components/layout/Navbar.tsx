@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Crosshair } from 'lucide-react';
 import { MagneticElement } from '../motion/MagneticElement';
@@ -9,6 +10,7 @@ import { MagneticElement } from '../motion/MagneticElement';
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +19,9 @@ export function Navbar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const isPlatformRoute = ['/dashboard', '/verification', '/verify', '/learning', '/leaderboard'].some(route => pathname?.startsWith(route));
+  if (isPlatformRoute) return null;
 
   return (
     <>
@@ -42,24 +47,17 @@ export function Navbar() {
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-10">
             <div className="flex items-center gap-8 border-r border-layer-3 pr-8">
-              <Link href="/#capabilities" className="text-xs text-muted-foreground hover:text-truth transition-colors font-mono tracking-widest uppercase relative group">
-                Capabilities
+              <Link href="/verify" className="text-xs text-muted-foreground hover:text-truth transition-colors font-mono tracking-widest uppercase relative group">
+                Verify Link
                 <span className="absolute -bottom-2 left-0 w-0 h-px bg-truth group-hover:w-full transition-all duration-300"></span>
               </Link>
-              <Link href="/#ecosystem" className="text-xs text-muted-foreground hover:text-truth transition-colors font-mono tracking-widest uppercase relative group">
-                Ecosystem
-                <span className="absolute -bottom-2 left-0 w-0 h-px bg-truth group-hover:w-full transition-all duration-300"></span>
-              </Link>
-              <Link href="/#trust" className="text-xs text-muted-foreground hover:text-truth transition-colors font-mono tracking-widest uppercase relative group">
-                Trust
+              <Link href="/learning" className="text-xs text-muted-foreground hover:text-truth transition-colors font-mono tracking-widest uppercase relative group">
+                Learning Hub
                 <span className="absolute -bottom-2 left-0 w-0 h-px bg-truth group-hover:w-full transition-all duration-300"></span>
               </Link>
             </div>
             
             <div className="flex items-center gap-6">
-              <Link href="/dashboard" className="text-xs text-foreground hover:text-truth transition-colors font-mono tracking-widest uppercase">
-                Dashboard
-              </Link>
               <MagneticElement strength={15}>
                 <Link href="/#try-now" className="relative group inline-block overflow-hidden">
                   <span className="relative inline-flex items-center justify-center gap-2 border border-truth bg-truth/10 px-6 py-2 text-truth font-mono text-xs uppercase tracking-widest group-hover:text-layer-1 transition-colors duration-300 z-10">
@@ -72,9 +70,9 @@ export function Navbar() {
             </div>
           </div>
 
-          {/* Mobile Toggle */}
+          {/* Menu Toggle */}
           <button 
-            className="md:hidden z-50 text-foreground"
+            className="z-50 text-foreground hover:text-truth transition-colors ml-4"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X /> : <Menu />}

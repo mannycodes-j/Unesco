@@ -5,6 +5,7 @@ import { RevealText } from "../motion/RevealText";
 import { FadeUp } from "../motion/FadeUp";
 import { ArrowRight, Crosshair } from "lucide-react";
 import { MagneticElement } from "../motion/MagneticElement";
+import Link from "next/link";
 
 export function Scene08Closing() {
   return (
@@ -46,9 +47,9 @@ export function Scene08Closing() {
           </MagneticElement>
 
           <MagneticElement strength={10}>
-            <button className="text-foreground hover:text-truth transition-colors font-mono uppercase tracking-widest text-sm flex items-center gap-2 group">
-              View School Dashboard <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
-            </button>
+            <Link href="/dashboard" className="text-foreground hover:text-truth transition-colors font-mono uppercase tracking-widest text-sm flex items-center gap-2 group">
+              View Community Dashboard <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+            </Link>
           </MagneticElement>
         </FadeUp>
       </div>

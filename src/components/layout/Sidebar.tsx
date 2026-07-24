@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ShieldCheck, LayoutDashboard, Search, BookOpen, Trophy, Settings } from "lucide-react";
+import { ShieldCheck, LayoutDashboard, Search, BookOpen, Trophy, Settings, Crosshair } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -35,7 +35,18 @@ export function Sidebar() {
     <aside className="w-64 flex-shrink-0 border-r border-layer-3 bg-layer-1/80 backdrop-blur-md hidden md:flex flex-col h-full relative z-20">
       <div className="absolute inset-0 bg-gradient-to-b from-truth/5 to-transparent opacity-50 pointer-events-none"></div>
       
-      <div className="flex-1 py-8 px-0 relative z-10">
+      <div className="flex-1 py-6 px-0 relative z-10 flex flex-col">
+        <div className="px-6 mb-8 mt-2">
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="relative flex items-center justify-center w-6 h-6">
+              <Crosshair className="text-truth w-full h-full group-hover:rotate-180 transition-transform duration-700 ease-in-out" />
+              <div className="absolute inset-0 bg-truth/20 blur-md rounded-full group-hover:bg-truth/40 transition-colors duration-500"></div>
+            </div>
+            <span className="font-editorial text-xl tracking-wide text-foreground">
+              TruthLens<span className="text-truth font-mono text-sm ml-1 opacity-80">_AI</span>
+            </span>
+          </Link>
+        </div>
         <div className="space-y-2">
           <p className="px-6 text-[10px] font-mono text-muted-foreground uppercase tracking-widest mb-6 flex items-center gap-2">
             <span className="w-1.5 h-1.5 bg-truth opacity-50"></span>
